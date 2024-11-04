@@ -16,6 +16,8 @@ git clone https://github.com/gakakulicc/Robust-HARL.git
 cd Robust-HARL
 pip install -e .
 ```
+In addition, you may need to install several environment support, including [Gym](https://www.gymlibrary.dev/), [SMAC](https://github.com/oxwhirl/smac), [SMACv2](https://github.com/oxwhirl/smacv2), [MAMuJoCo](https://github.com/schroederdewitt/multiagent_mujoco), [MPE](https://pettingzoo.farama.org/environments/mpe/), [Google Research Football](https://github.com/google-research/football), [Bi-DexterousHands](https://github.com/PKU-MARL/DexterousHands), [Light Aircraft Game](https://github.com/liuqh16/CloseAirCombat). If you have not installed these environments, please install them according to the official instructions or the [HARL](https://github.com/PKU-MARL/HARL) tutorial
+
 
 ## Usage
 If you want to use this code, you can obtain the relevant code in the corresponding uncertainty experiment folder. You can modify the environment related parameters in `harl/configs/envs_cfgs`, and modify the algorithm related parameters or import the trained model in `harl/configs/algos_cfgs`. The default parameters in these two directories are the ones we have adjusted, and you can use these parameters to reproduce our results. 
