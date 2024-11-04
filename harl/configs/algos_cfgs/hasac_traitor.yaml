@@ -3,7 +3,7 @@ seed:
   # whether to use the specified seed
   seed_specify: True
   # seed
-  seed: 1
+  seed: 2
 device:
   # whether to use CUDA
   cuda: True
@@ -33,8 +33,10 @@ train:
   # whether to consider the case of truncation when an episode is done
   use_proper_time_limits: True
   # if set, load models from this directory; otherwise, randomly initialise the models
-  model_dir: ~
-  adv_model_dir: ~
+  # model_dir: ~
+  # adv_model_dir: ~
+  model_dir: /root/gjn/results/pursuit/eghnacc-direct-tac/hasac/2_agents/seed-00002-2024-07-22-22-07-23/models
+  adv_model_dir: /root/gjn/results_act/pursuit/eghnacc-direct-tac/hasac_advt/2_action_perturbation/seed-00002-2024-09-12-04-56-40/models
 eval:
   # whether to use evaluation
   use_eval: True
@@ -110,6 +112,9 @@ algo:
   belief: False
   # state adv
   state_adversary: True
+  state_adversary_all: True
+  state_adversary_targeted: False
+  state_adversary_untargeted_init_bias: 0.01
   obs_offset: 0
   eps: 1
   iter: 5
