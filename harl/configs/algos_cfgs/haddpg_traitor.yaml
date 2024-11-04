@@ -1,0 +1,103 @@
+# This is the configuration file for the HADDPG algorithm.
+seed:
+  # whether to use the specified seed
+  seed_specify: True
+  # seed
+  seed: 1
+device:
+  # whether to use CUDA
+  cuda: True
+  # whether to set CUDA deterministic
+  cuda_deterministic: True
+  # arg to torch.set_num_threads
+  torch_threads: 4
+train:
+  # number of parallel environments for training data collection
+  n_rollout_threads: 10
+  # number of total steps
+  num_env_steps: 10000000
+  # number of warmup steps
+  warmup_steps: 10000
+  # number of steps per train
+  train_interval: 50
+  # ratio of training iterations to train_interval
+  update_per_train: 1
+  # logging interval (currently unused)
+  log_interval: ~
+  # evaluation interval
+  eval_interval: 10000
+  # whether to use linear learning rate decay
+  use_linear_lr_decay: False
+  # whether to consider the case of truncation when an episode is done
+  use_proper_time_limits: True
+  # if set, load models from this directory; otherwise, randomly initialise the models
+  model_dir: ~
+  adv_model_dir: ~
+eval:
+  # whether to use evaluation
+  use_eval: True
+  # number of parallel environments for evaluation
+  n_eval_rollout_threads: 20
+  # number of episodes per evaluation
+  eval_episodes: 40
+render:
+  # whether to use render
+  use_render: False
+  # number of episodes to render
+  render_episodes: 10
+model:
+  # network parameters
+  # hidden sizes for mlp module in the network
+  hidden_sizes: [128, 128]
+  # activation function, choose from sigmoid, tanh, relu, leaky_relu, selu
+  activation_func: relu
+  # final activation function, choose from sigmoid, tanh, relu, leaky_relu, selu
+  final_activation_func: tanh
+  # optimizer parameters
+  # actor learning rate
+  lr: 0.0005
+  # critic learning rate
+  critic_lr: 0.001
+  adv_lr: 0.0005
+  adv_epoch: 1
+  # eps in Adam
+  opti_eps: 0.00001
+  # weight_decay in Adam
+  weight_decay: 0
+  # parameters of diagonal Gaussian distribution
+  std_x_coef: 1
+  # parameters of diagonal Gaussian distribution
+  std_y_coef: 0.5
+algo:
+  # discount factor
+  gamma: 0.99
+  # off-policy buffer size
+  buffer_size: 1000000
+  # training batch size
+  batch_size: 1000
+  # coefficient for target model soft update
+  polyak: 0.005
+  # exploration noise
+  expl_noise: 0.1
+  # the number of steps to look ahead
+  n_step: 1
+  # whether to share parameter among actors
+  share_param: False
+  # whether to use a fixed optimisation order
+  fixed_order: False
+  adv_prob: 0.5
+  agent_adversary: 0
+  victim_interval: 1
+  super_adversary: False
+  adapt_adversary: False
+  load_adv_actor: True
+  belief: False
+  # state adv
+  state_adversary: True
+  obs_offset: 0
+  eps: 1
+  iter: 5
+  alpha_rate: 3
+logger:
+  # logging directory
+  log_dir: "./results"
