@@ -18,4 +18,4 @@ python train.py --exp<EXPERIMENT> --Algo<ALGO> --env<ENV> --noise<NOISE> --exp_n
 ```
 It should be noted that in the experiment of reward uncertainty, environmental uncertainty and state uncertainty, the trained model should be imported before the experiment. In the action uncertainty experiment, the noise parameter does not work. 
 
-These usage methods can also refer to the `train.sh` example provided, modify the parameters you need, and run train.sh.
+These methods can also refer to the shell examples provided. You can modify the required parameters and then run the corresponding shell script.
